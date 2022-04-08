@@ -6,14 +6,38 @@
             max-width: 500px;
             margin: auto;
         }
+
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+
     </style>
 </head>
 
 <html>
 
 <body>
-    <div class="content">
-        <h1>Bibliófilo's</h1>
+    <div >
+        <h1>Biblioteca dus Guri</h1>
 
         <h2>Livros</h2>
         <?php
@@ -21,9 +45,9 @@
 
         $conexao = RetornaConexao();
 
-        $titulo = 'titulo';
-        $autor = 'autor';
-        $classificacao = 'classificacao';
+        $titulo = 'Titulo';
+        $autor = 'Autor';
+        $classificacao = 'Classificacao';
         /*TODO-1: Adicione uma variavel para cada coluna */
 
 
@@ -32,7 +56,7 @@
             '     , ' . $autor .
             '     , ' . $classificacao .
             /*TODO-2: Adicione cada variavel a consulta abaixo */
-            '  FROM livros';
+            '  FROM livro';
 
 
         $resultado = mysqli_query($conexao, $sql);
@@ -43,7 +67,7 @@
 
 
         $cabecalho =
-            '<table>' .
+            '<table id="customers">' .
             '    <tr>' .
             '        <th>' . $titulo . '</th>' .
             '        <th>' . $autor . '</th>' .
